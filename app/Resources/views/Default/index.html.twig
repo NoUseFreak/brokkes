@@ -1,0 +1,10 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+    {% if app.user and is_granted('ROLE_USER') %}
+        Welcome {{ app.user.username }} <br>
+        <a href="{{ path('logout') }}">logout</a>
+    {% else %}
+    <a href="{{ path('login') }}">login</a> or <a href="{{ path('register') }}">register</a>
+    {% endif %}
+{% endblock %}
