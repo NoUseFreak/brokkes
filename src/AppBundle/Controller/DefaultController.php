@@ -12,6 +12,10 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
-        return $this->render(':Default:index.html.twig');
+        if ($this->getUser()) {
+            return $this->render(':Default:index.html.twig');
+        } else {
+            return $this->render(':Default:splash.html.twig');
+        }
     }
 }

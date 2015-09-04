@@ -1,0 +1,104 @@
+{% extends '::base.html.twig' %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Account</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <ul class="nav nav-tabs" role="tablist">
+                <li class="nav-item">
+                    <a href="#open" class="nav-link active" role="tab" data-toggle="tab">Open orders</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#history" class="nav-link" role="tab" data-toggle="tab">Previous orders</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#topups" class="nav-link" role="tab" data-toggle="tab">Top ups</a>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="open">
+                    <ul class="list-group">
+                        {% for i in range(0,2) %}
+                            <li class="list-group-item">
+                                <ul class="list-inline pull-right">
+                                    <li><a href="#"><span class="label label-danger label-pill">cancel</span></a></li>
+                                </ul>
+                                <h3 class="list-group-item-heading">
+                                    <a href="{{ path('shop_order') }}">Morbi leo risus</a>
+                                </h3>
+                                <div class="list-group-item-text container">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <dl class="dl-horizontal">
+                                                <dt class="col-sm-3">Shop</dt>
+                                                <dd class="col-sm-9"><a href="{{ path('shop_menu') }}">Woody's</a></dd>
+
+                                                <dt class="col-sm-3">Price</dt>
+                                                <dd class="col-sm-9">€ 4.3</dd>
+
+                                                <dt class="col-sm-3">Date</dt>
+                                                <dd class="col-sm-9">{{ 'now'|date }}</dd>
+                                            </dl>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="history">
+                    <ul class="list-group">
+                        {% for i in range(0,2) %}
+                            <li class="list-group-item">
+                                <h3 class="list-group-item-heading">
+                                    <a href="{{ path('shop_order') }}">Morbi leo risus</a>
+                                </h3>
+                                <div class="list-group-item-text container">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <dl class="dl-horizontal">
+                                                <dt class="col-sm-3">Shop</dt>
+                                                <dd class="col-sm-9"><a href="{{ path('shop_menu') }}">Woody's</a></dd>
+
+                                                <dt class="col-sm-3">Price</dt>
+                                                <dd class="col-sm-9">€ 4.3</dd>
+
+                                                <dt class="col-sm-3">Date</dt>
+                                                <dd class="col-sm-9">{{ 'now'|date }}</dd>
+                                            </dl>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="topups">
+                    <ul class="list-group">
+                        {% for i in range(0,2) %}
+                            <li class="list-group-item">
+                                <h3 class="list-group-item-heading">
+                                    € 20
+                                </h3>
+                                <div class="list-group-item-text container">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <dl class="dl-horizontal">
+                                                <dt class="col-sm-3">Date</dt>
+                                                <dd class="col-sm-9">{{ 'now'|date }}</dd>
+                                            </dl>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -30,7 +30,9 @@ class UserController extends \FOS\UserBundle\Controller\SecurityController
             $em->persist($user);
             $em->flush();
 
-            return $this->redirectToRoute('homepage');
+            $this->addFlash('success', 'Registration completed. Please login.');
+
+            return $this->redirectToRoute('login');
         }
 
         return $this->render(

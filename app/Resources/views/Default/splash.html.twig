@@ -1,0 +1,89 @@
+{% extends '::base.html.twig' %}
+
+{% block content %}
+    <section class="text-center">
+        <h1 class="heading text-uppercase">Brökkes</h1>
+        <p class="lead text-muted">
+            Wa is da na just, dieje "Brökkes"?
+        </p>
+        <p>
+            <a class="btn btn-lg btn-default" href="{{ path('register') }}">Register</a>
+            <a class="btn btn-lg btn-secondary" href="{{ path('login') }}">Login</a>
+        </p>
+    </section>
+    <hr>
+    <section class="row text-center">
+        <div class="col-md-6 col-md-offset-3">
+            <img src="https://secure.gravatar.com/avatar/c31151cf8c6c0668204c4e8957a51d62" alt="..." class="img-circle m-b-md">
+            <p class="lead">Sed varius, libero eu ultricies commodo, metus nibh rutrum sem, vel feugiat purus nibh eget justo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lacinia turpis quis neque pharetra, id interdum odio condimentum.</p>
+            <p class="text-muted">Dries De Peuter</p>
+        </div>
+    </section>
+    <hr>
+    <section class="row">
+        <div class="col-md-6">
+            <div class="media">
+                <div class="media-left">
+                    <i class="fa fa-3x fa-users"></i>
+                </div>
+                <div class="media-body">
+                    <h4 class="media-heading">Group orders</h4>
+                    <p>Morbi dapibus nunc luctus, fringilla diam non, bibendum libero. Morbi ornare malesuada imperdiet. Vivamus tempor nisl arcu, vel commodo mauris elementum sit amet.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="media">
+                <div class="media-left">
+                    <i class="fa fa-3x fa-money"></i>
+                </div>
+                <div class="media-body">
+                    <h4 class="media-heading">Simple finance</h4>
+                    <p>Phasellus efficitur tristique dui, sed porttitor ipsum rutrum fermentum. Maecenas cursus risus sed arcu blandit, eu pellentesque purus vulputate. Proin dui est, finibus vel diam non, eleifend vulputate nisi.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="media">
+                <div class="media-left">
+                    <i class="fa fa-3x fa-hourglass-start"></i>
+                </div>
+                <div class="media-body">
+                    <h4 class="media-heading">Save time</h4>
+                    <p>Phasellus efficitur tristique dui, sed porttitor ipsum rutrum fermentum. Maecenas cursus risus sed arcu blandit, eu pellentesque purus vulputate. Proin dui est, finibus vel diam non, eleifend vulputate nisi.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="media">
+                <div class="media-left">
+                    <i class="fa fa-3x fa-smile-o"></i>
+                </div>
+                <div class="media-body">
+                    <h4 class="media-heading">Happy employees</h4>
+                    <p>Phasellus efficitur tristique dui, sed porttitor ipsum rutrum fermentum. Maecenas cursus risus sed arcu blandit, eu pellentesque purus vulputate. Proin dui est, finibus vel diam non, eleifend vulputate nisi.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <hr>
+    <section class="row text-center">
+        <div class="col-md-12">
+            <p class="lead">Some stats. In tempor magna dui. Aenean rhoncus dictum hendrerit. Aenean ex libero, sagittis sed leo non, pellentesque congue sapien. Maecenas condimentum sollicitudin nisl at porta. Nam libero ligula, porttitor a erat a, egestas finibus tellus.</p>
+            <div class="center-block">
+                <div class="landing-stat">
+                    <span>1m</span>
+                    <span>registered users</span>
+                </div>
+                <div class="landing-stat">
+                    <span>23k</span>
+                    <span>active users</span>
+                </div>
+                <div class="landing-stat">
+                    <span>23k</span>
+                    <span>order / month</span>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

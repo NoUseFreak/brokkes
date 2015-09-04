@@ -1,0 +1,122 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400);
+
+body {
+    background-color: #ffffff;
+    color: #000000;
+    font-family: "Roboto Condensed",Helvetica,Arial,sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 250px;
+}
+html {
+    min-height: 100%;
+    position: relative;
+}
+
+/*******/
+
+.btn-default {
+    background-color: #685d9e;
+    color: #ffffff
+}
+.btn-default:hover {
+    background-color: #534a7f;
+    border-color: #443d68;
+    color: #ffffff;
+}
+
+.label-primary {
+    background-color: #685d9e;
+    color: #ffffff !important;
+}
+.label-primary[href]:hover {
+    background-color: #534a7f;
+}
+
+.card {
+    overflow: hidden;
+}
+
+hr {
+    margin: 80px 0;
+}
+
+/*******/
+
+
+.app-navbar {
+    margin: 20px 0 40px 0;
+}
+.navbar a {
+    color: #333333;
+    font-size: 1em;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+.navbar .label-pill {
+    margin-top: 5px;
+}
+.navbar .label-pill:hover {
+    color: #999;
+}
+
+
+footer {
+    background-color: #f9f9f9;
+    bottom: 0;
+    border-top: 0.05rem solid #e5e5e5;
+    color: #999;
+    height: 180px;
+    position: absolute;
+    width: 100%;
+}
+footer ul {
+    margin: 30px 0;
+}
+
+/** splash **/
+.heading {
+    font-size: 6rem;
+}
+.media .fa {
+    color: #685d9e;
+    padding: 0 20px;
+}
+/** login/register **/
+
+.form-signin {
+    width: 300px;
+}
+
+.form-signin input[type="email"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.form-signin input[type="password"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.form-register {
+    width: 500px;
+}
+
+.landing-stat {
+    display: inline-block;
+}
+.landing-stat span {
+    display: block;
+    margin-right: 60px;
+    text-align: right;
+    line-height: 1em
+}
+.landing-stat span:nth-child(1) {
+    font-size: 4rem;
+}
+.landing-stat span:nth-child(2) {
+    font-size: 1rem;
+    text-transform: uppercase;
+}

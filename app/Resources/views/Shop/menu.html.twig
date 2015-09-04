@@ -1,0 +1,29 @@
+{% extends '::base.html.twig' %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-6">
+            <img class="img-responsive" src="http://lorempixel.com/400/200/food/" alt="Card image">
+        </div>
+
+        <div class="col-md-6">
+            <h1>Woody's</h1>
+            <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Menu</h2>
+            <div class="list-group">
+                {% for i in range(0,12) %}
+                <a href="{{ path('shop_order') }}" class="list-group-item">
+                    <span class="label label-default label-pill pull-right">€ 4,20</span>
+                    <h4 class="list-group-item-heading">Smos mee hesp</h4>
+                    <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maece</p>
+                </a>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

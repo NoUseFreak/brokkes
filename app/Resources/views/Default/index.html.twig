@@ -1,10 +1,21 @@
 {% extends '::base.html.twig' %}
 
-{% block body %}
-    {% if app.user and is_granted('ROLE_USER') %}
-        Welcome {{ app.user.username }} <br>
-        <a href="{{ path('logout') }}">logout</a>
-    {% else %}
-    <a href="{{ path('login') }}">login</a> or <a href="{{ path('register') }}">register</a>
-    {% endif %}
+{% block content %}
+    <div class="row">
+        <div class="card-columns">
+            {% for i in range(0,5) %}
+                <div class="card">
+                    <div class="card-block">
+                        <h4 class="card-title">Woody's</h4>
+                        <h6 class="card-subtitle text-muted">Support card subtitle</h6>
+                    </div>
+                    <img src="http://lorempixel.com/400/200/food/?{{ i }}" alt="Card image">
+                    <div class="card-block">
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="{{ path('shop_menu') }}" class="btn btn-default">View menu</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
 {% endblock %}

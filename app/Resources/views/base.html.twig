@@ -1,13 +1,85 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
-</html>
+{% extends '::clean.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+{% endblock %}
+
+{% block body %}
+    <div class="app-navbar">
+        <div class="container">
+            <nav class="navbar">
+                <a class="navbar-brand" href="{{ path('homepage') }}">Brökkes</a>
+                <ul class="nav navbar-nav pull-right">
+                    {% if is_granted('ROLE_USER') %}
+                        <li class="nav-item">
+                            <a class="nav-link label label-pill" href="{{ path('account_index') }}">
+                                <i class="fa fa-shopping-cart"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link balance-pill label label-pill label-primary" href="{{ path('account_balance') }}">€ 20</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                                {{ app.user.username }}
+                            </a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="{{ path('account_index') }}">Account</a>
+                                <a class="dropdown-item" href="{{ path('company_detail') }}">My company</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="{{ path('logout') }}">Logout</a>
+                            </div>
+                        </li>
+                    {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">About</a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <div class="container">
+        {% for flashMessage in app.session.flashbag.get('success') %}
+            <div class="alert alert-success alert-dismissible fade in" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <strong>Success!</strong> {{ flashMessage }}
+            </div>
+        {% endfor %}
+
+        {% block content %}{% endblock %}
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2">
+                    <ul class="list-unstyled">
+                        <li><h6>Product</h6></li>
+                        <li><a href="#">About</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2">
+                    <ul class="list-unstyled">
+                        <li><h6>Support</h6></li>
+                        <li><a href="#">Online support</a></li>
+                        <li><a href="#">Helpdesk</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2">
+                </div>
+                <div class="col-md-6">
+                    <ul class="list-unstyled">
+                        <li><h6>About</h6></li>
+                        <li><p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam leo nisl, lobortis id ultrices eu, luctus ac arcu. Fusce ullamcorper mauris tortor, nec scelerisque ex consectetur id.</p></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+{% endblock %}
