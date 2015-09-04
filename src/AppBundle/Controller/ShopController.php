@@ -9,14 +9,6 @@ use Symfony\Component\HttpFoundation\Request;
 class ShopController extends Controller
 {
     /**
-     * @Route("/shop/detail", name="shop_detail")
-     */
-    public function detailAction()
-    {
-        return $this->render(':Shop:detail.html.twig');
-    }
-
-    /**
      * @Route("/shop/menu", name="shop_menu")
      */
     public function menuAction()
