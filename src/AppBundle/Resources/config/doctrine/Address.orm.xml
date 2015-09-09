@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity repository-class="AppBundle\Entity\AddressRepository" name="AppBundle\Entity\Address">
+    <id name="id" type="integer" column="id">
+      <generator strategy="AUTO"/>
+    </id>
+    <field name="street" type="string" column="street" length="255"/>
+    <field name="nbr" type="string" column="nbr" length="10"/>
+    <field name="box" type="string" column="box" length="10" nullable="true"/>
+    <field name="postal" type="string" column="postal" length="10" nullable="true"/>
+    <field name="city" type="string" column="city" length="255"/>
+    <field name="country" type="string" column="country" length="255" nullable="true"/>
+
+    <many-to-one field="node" target-entity="Clastic\NodeBundle\Entity\Node">
+      <cascade><cascade-all/></cascade>
+      <join-column name="node_id" referenced-column-name="id" />
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

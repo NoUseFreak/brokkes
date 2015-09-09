@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity repository-class="AppBundle\Entity\CampusRepository" name="AppBundle\Entity\Campus">
+    <id name="id" type="integer" column="id">
+      <generator strategy="AUTO"/>
+    </id>
+    <field name="photo" type="string" column="photo" length="255"/>
+    <field name="description" type="text" column="description" nullable="true"/>
+
+    <many-to-one field="node" target-entity="Clastic\NodeBundle\Entity\Node">
+      <cascade><cascade-all/></cascade>
+      <join-column name="node_id" referenced-column-name="id" />
+    </many-to-one>
+
+    <many-to-one field="company" target-entity="AppBundle\Entity\Company">
+      <cascade><cascade-all/></cascade>
+      <join-column name="company_id" referenced-column-name="id" />
+    </many-to-one>
+
+    <many-to-one field="address" target-entity="AppBundle\Entity\Address">
+      <cascade><cascade-all/></cascade>
+      <join-column name="address_id" referenced-column-name="id" />
+    </many-to-one>
+
+    <many-to-many field="shops" inversed-by="campuses" target-entity="AppBundle\Entity\Shop">
+      <join-table name="campuses_shops">
+        <join-columns>
+          <join-column name="campus_id" referenced-column-name="id" />
+        </join-columns>
+        <inverse-join-columns>
+          <join-column name="shop_id" referenced-column-name="id" />
+        </inverse-join-columns>
+      </join-table>
+    </many-to-many>
+  </entity>
+</doctrine-mapping>
