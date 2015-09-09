@@ -1,8 +1,6 @@
-<?xml version="1.0" ?>
-
-<container xmlns="http://symfony.com/schema/dic/services"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+<?xml version="1.0"?>
+<container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <!--
     <services>
@@ -13,4 +11,22 @@
         </service>
     </services>
     -->
+    <parameters>
+        <parameter key="app_bundle.address.module.class">AppBundle\Module\AddressModule</parameter>
+        <parameter key="app_bundle.address.module.form_extension.class">AppBundle\Form\Module\AddressFormExtension</parameter>
+        <parameter key="app_bundle.company.module.class">AppBundle\Module\CompanyModule</parameter>
+        <parameter key="app_bundle.company.module.form_extension.class">AppBundle\Form\Module\CompanyFormExtension</parameter>
+    </parameters>
+    <services>
+        <service id="app_bundle.address.module" class="%app_bundle.address.module.class%">
+            <tag name="clastic.module" node_module="true" alias="address"/>
+            <tag name="clastic.node_form" build_service="app_bundle.address.module.form_extension"/>
+        </service>
+        <service id="app_bundle.address.module.form_extension" class="%app_bundle.address.module.form_extension.class%"/>
+        <service id="app_bundle.company.module" class="%app_bundle.company.module.class%">
+            <tag name="clastic.module" node_module="true" alias="company"/>
+            <tag name="clastic.node_form" build_service="app_bundle.company.module.form_extension"/>
+        </service>
+        <service id="app_bundle.company.module.form_extension" class="%app_bundle.company.module.form_extension.class%"/>
+    </services>
 </container>
