@@ -20,4 +20,4 @@ parameters:
     secret:            ThisTokenIsNotSoSecretChangeIt
 
     # Clastic settings
-    clastic_site_name: Clastic
+    clastic_site_name: Brökkes
