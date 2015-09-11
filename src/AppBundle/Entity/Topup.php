@@ -2,7 +2,7 @@
 
 namespace AppBundle\Entity;
 
-use Clastic\NodeBundle\Node\NodeReferenceTrait;
+use Clastic\UserBundle\Entity\User;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -10,8 +10,6 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Topup
 {
-    use NodeReferenceTrait;
-
     /**
      * @var integer
      */
@@ -23,9 +21,19 @@ class Topup
     private $amount;
 
     /**
+     * @var \DateTime
+     */
+    private $created;
+
+    /**
      * @var Campus
      */
     private $campus;
+
+    /**
+     * @var User
+     */
+    private $user;
 
 
     /**
@@ -62,6 +70,30 @@ class Topup
     }
 
     /**
+     * Set created
+     *
+     * @param \DateTime $created
+     *
+     * @return Topup
+     */
+    public function setCreated($created)
+    {
+        $this->created = $created;
+
+        return $this;
+    }
+
+    /**
+     * Get created
+     *
+     * @return \DateTime
+     */
+    public function getCreated()
+    {
+        return $this->created;
+    }
+
+    /**
      * Set campus
      *
      * @param Campus $campus
@@ -82,5 +114,28 @@ class Topup
     public function getCampus()
     {
         return $this->campus;
+    }
+
+    /**
+     * Set user
+     *
+     * @param User $user
+     * @return Topup
+     */
+    public function setUser($user)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return User
+     */
+    public function getUser()
+    {
+        return $this->user;
     }
 }

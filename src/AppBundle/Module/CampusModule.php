@@ -2,12 +2,13 @@
 
 namespace AppBundle\Module;
 
+use Clastic\CoreBundle\Module\SubmoduleInterface;
 use Clastic\NodeBundle\Module\NodeModuleInterface;
 
 /**
- * Address
+ * Campus
  */
-class AddressModule implements NodeModuleInterface
+class CampusModule implements NodeModuleInterface, SubmoduleInterface
 {
     /**
      * The name of the module.
@@ -16,7 +17,7 @@ class AddressModule implements NodeModuleInterface
      */
     public function getName()
     {
-        return 'Address';
+        return 'Campus';
     }
 
     /**
@@ -26,7 +27,17 @@ class AddressModule implements NodeModuleInterface
      */
     public function getIdentifier()
     {
-        return 'address';
+        return 'campus';
+    }
+
+    /**
+     * The identifier of the parent module.
+     *
+     * @return string
+     */
+    public function getParentIdentifier()
+    {
+        return 'company';
     }
 
     /**
@@ -34,7 +45,7 @@ class AddressModule implements NodeModuleInterface
      */
     public function getEntityName()
     {
-        return 'AppBundle:Address';
+        return 'AppBundle:Campus';
     }
 
     /**
@@ -42,6 +53,6 @@ class AddressModule implements NodeModuleInterface
      */
     public function getDetailTemplate()
     {
-        return 'AppBundle:Address:detail.html.twig';
+        return 'AppBundle:Campus:detail.html.twig';
     }
 }

@@ -10,10 +10,5 @@
     <field name="postal" type="string" column="postal" length="10" nullable="true"/>
     <field name="city" type="string" column="city" length="255"/>
     <field name="country" type="string" column="country" length="255" nullable="true"/>
-
-    <many-to-one field="node" target-entity="Clastic\NodeBundle\Entity\Node">
-      <cascade><cascade-all/></cascade>
-      <join-column name="node_id" referenced-column-name="id" />
-    </many-to-one>
   </entity>
 </doctrine-mapping>

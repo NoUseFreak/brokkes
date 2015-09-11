@@ -115,7 +115,7 @@ class Campus implements NodeReferenceInterface
      * @param Address $address
      * @return Campus
      */
-    public function setAddress($address)
+    public function setAddress(Address $address)
     {
         $this->address = $address;
 
@@ -138,7 +138,7 @@ class Campus implements NodeReferenceInterface
      * @param Company $company
      * @return Campus
      */
-    public function setCompany($company)
+    public function setCompany(Company $company)
     {
         $this->company = $company;
 
@@ -153,5 +153,36 @@ class Campus implements NodeReferenceInterface
     public function getCompany()
     {
         return $this->company;
+    }
+
+    /**
+     * Set shops
+     *
+     * @param Shop[] $shops
+     * @return Campus
+     */
+    public function setShops($shops)
+    {
+        $this->shops = $shops;
+
+        return $this;
+    }
+
+    /**
+     * Get shops
+     *
+     * @return Shop[]
+     */
+    public function getShops()
+    {
+        return $this->shops;
+    }
+
+    /**
+     * Get the readable name.
+     */
+    function __toString()
+    {
+        return $this->getNode()->getTitle();
     }
 }

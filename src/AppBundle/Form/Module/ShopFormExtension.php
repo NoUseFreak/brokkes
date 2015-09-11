@@ -6,14 +6,19 @@ use Clastic\NodeBundle\Form\Extension\AbstractNodeTypeExtension;
 use Symfony\Component\Form\FormBuilderInterface;
 
 /**
- * CompanyTypeExtension
+ * ShopTypeExtension
  */
-class CompanyFormExtension extends AbstractNodeTypeExtension
+class ShopFormExtension extends AbstractNodeTypeExtension
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $this->getTabHelper($builder)->findTab('general')
-            ->add('logo', 'text', array('required' => false))
+            ->add('logo', 'file', array('required' => false))
             ->add('description', 'wysiwyg');
+
+        $this->getTabHelper($builder)->createTab('shop_address', 'Address', array(
+            'position' => array('after' => 'general')
+        ))
+            ->add('address', 'address');
     }
 }

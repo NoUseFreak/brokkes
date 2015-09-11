@@ -2,17 +2,14 @@
 
 namespace AppBundle\Entity;
 
-use Clastic\NodeBundle\Node\NodeReferenceInterface;
-use Clastic\NodeBundle\Node\NodeReferenceTrait;
 use Clastic\UserBundle\Entity\User;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Profile
  */
-class Profile implements NodeReferenceInterface
+class Profile
 {
-    use NodeReferenceTrait;
 
     /**
      * @var integer

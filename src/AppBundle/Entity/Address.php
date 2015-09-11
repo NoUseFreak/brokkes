@@ -2,14 +2,13 @@
 
 namespace AppBundle\Entity;
 
-use Clastic\NodeBundle\Node\NodeReferenceInterface;
 use Clastic\NodeBundle\Node\NodeReferenceTrait;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Address
  */
-class Address implements NodeReferenceInterface
+class Address
 {
     use NodeReferenceTrait;
 

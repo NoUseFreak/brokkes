@@ -1,0 +1,28 @@
+{% extends 'ClasticNodeBundle:Backoffice/Node:list.html.twig' %}
+
+{% trans_default_domain 'clastic' %}
+
+{% block list_header %}
+    <tr>
+        <th></th>
+        <th>{{ 'list.date'|trans }}</th>
+        <th>{{ 'list.product'|trans }}</th>
+        <th>{{ 'list.price'|trans }}</th>
+        <th>{{ 'list.user'|trans }}</th>
+        <th>{{ 'list.processed'|trans }}</th>
+    </tr>
+{% endblock %}
+
+{% block list_body %}
+    <tr>
+        <td>
+            <a class="btn btn-success btn-xs" href="{{ path('clastic_node_form', {type: type, id: record.id}) }}"><i class="fa fa-pencil"></i></a>
+            <a class="btn btn-danger btn-xs" href="{{ path('clastic_node_delete', {type: type, id: record.id}) }}"><i class="fa fa-trash"></i></a>
+        </td>
+        <td>{{ record.created|date('d/m/Y') }}</td>
+        <td>{{ record.product }}</td>
+        <td>{{ record.price }}</td>
+        <td>{{ record.user }}</td>
+        <td>{{ record.processed|date('d/m/Y') }}</td>
+    </tr>
+{% endblock %}

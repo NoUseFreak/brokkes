@@ -22,12 +22,12 @@ class Shop implements NodeReferenceInterface
     /**
      * @var string
      */
-    private $name;
+    private $logo;
 
     /**
      * @var string
      */
-    private $logo;
+    private $description;
 
     /**
      * @var Address
@@ -55,29 +55,6 @@ class Shop implements NodeReferenceInterface
     }
 
     /**
-     * Set name
-     *
-     * @param string $name
-     * @return Shop
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-
-        return $this;
-    }
-
-    /**
-     * Get name
-     *
-     * @return string 
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
      * Set logo
      *
      * @param string $logo
@@ -101,12 +78,35 @@ class Shop implements NodeReferenceInterface
     }
 
     /**
+     * Set description
+     *
+     * @param string $description
+     * @return Shop
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
      * Set address
      *
      * @param Address $address
      * @return Shop
      */
-    public function setAddress($address)
+    public function setAddress(Address $address)
     {
         $this->address = $address;
 
@@ -121,5 +121,36 @@ class Shop implements NodeReferenceInterface
     public function getAddress()
     {
         return $this->address;
+    }
+
+    /**
+     * Set campuses
+     *
+     * @param Campus[] $campuses
+     * @return Shop
+     */
+    public function setCampuses($campuses)
+    {
+        $this->campuses = $campuses;
+
+        return $this;
+    }
+
+    /**
+     * Get campuses
+     *
+     * @return Campus[]
+     */
+    public function getCampuses()
+    {
+        return $this->campuses;
+    }
+
+    /**
+     * Return the readable name.
+     */
+    function __toString()
+    {
+        return $this->getNode()->getTitle();
     }
 }

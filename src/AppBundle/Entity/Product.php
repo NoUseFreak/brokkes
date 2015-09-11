@@ -21,11 +21,6 @@ class Product implements NodeReferenceInterface
     /**
      * @var string
      */
-    private $name;
-
-    /**
-     * @var string
-     */
     private $photo;
 
     /**
@@ -52,29 +47,6 @@ class Product implements NodeReferenceInterface
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set name
-     *
-     * @param string $name
-     * @return Product
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-
-        return $this;
-    }
-
-    /**
-     * Get name
-     *
-     * @return string 
-     */
-    public function getName()
-    {
-        return $this->name;
     }
 
     /**
@@ -152,7 +124,7 @@ class Product implements NodeReferenceInterface
      * @param Shop $shop
      * @return Product
      */
-    public function setShop($shop)
+    public function setShop(Shop $shop)
     {
         $this->shop = $shop;
 
@@ -167,5 +139,13 @@ class Product implements NodeReferenceInterface
     public function getShop()
     {
         return $this->shop;
+    }
+
+    /**
+     * Get the readable name.
+     */
+    function __toString()
+    {
+        return $this->getNode()->getTitle();
     }
 }

@@ -21,11 +21,6 @@ class Company implements NodeReferenceInterface
     /**
      * @var string
      */
-    private $name;
-
-    /**
-     * @var string
-     */
     private $logo;
 
     /**
@@ -42,29 +37,6 @@ class Company implements NodeReferenceInterface
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set name
-     *
-     * @param string $name
-     * @return Company
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-
-        return $this;
-    }
-
-    /**
-     * Get name
-     *
-     * @return string 
-     */
-    public function getName()
-    {
-        return $this->name;
     }
 
     /**
@@ -111,5 +83,13 @@ class Company implements NodeReferenceInterface
     public function getDescription()
     {
         return $this->description;
+    }
+
+    /**
+     * Return the readable name.
+     */
+    function __toString()
+    {
+        return $this->getNode()->getTitle();
     }
 }

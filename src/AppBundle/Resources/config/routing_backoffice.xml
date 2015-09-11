@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<routes xmlns="http://symfony.com/schema/routing"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/routing http://symfony.com/schema/routing/routing-1.0.xsd">
+
+    <route id="app_backoffice_order_list" path="/order/list">
+        <default key="_controller">AppBundle:Order:list</default>
+    </route>
+
+    <route id="app_backoffice_order_form" path="/order/edit/{id}">
+        <default key="_controller">AppBundle:Order:form</default>
+        <default key="id" xsi:nil="true" />
+    </route>
+
+    <route id="app_backoffice_order_delete" path="/order/delete/{id}">
+        <default key="_controller">AppBundle:Order:delete</default>
+    </route>
+
+    <route id="app_backoffice_topup_list" path="/topup/list">
+        <default key="_controller">AppBundle:Topup:list</default>
+    </route>
+
+    <route id="app_backoffice_topup_form" path="/topup/edit/{id}">
+        <default key="_controller">AppBundle:Topup:form</default>
+        <default key="id" xsi:nil="true" />
+    </route>
+
+    <route id="app_backoffice_topup_delete" path="/topup/delete/{id}">
+        <default key="_controller">AppBundle:Topup:delete</default>
+    </route>
+</routes>

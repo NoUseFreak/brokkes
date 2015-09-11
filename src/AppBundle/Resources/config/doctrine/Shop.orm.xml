@@ -4,8 +4,8 @@
     <id name="id" type="integer" column="id">
       <generator strategy="AUTO"/>
     </id>
-    <field name="name" type="string" column="name" length="255"/>
     <field name="logo" type="string" column="logo" length="255" nullable="true"/>
+    <field name="description" type="text" column="description" nullable="true"/>
 
     <many-to-one field="node" target-entity="Clastic\NodeBundle\Entity\Node">
       <cascade><cascade-all/></cascade>

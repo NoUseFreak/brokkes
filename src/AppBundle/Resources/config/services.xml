@@ -1,6 +1,5 @@
 <?xml version="1.0"?>
-<container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+<container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <!--
     <services>
@@ -12,21 +11,58 @@
     </services>
     -->
     <parameters>
-        <parameter key="app_bundle.address.module.class">AppBundle\Module\AddressModule</parameter>
-        <parameter key="app_bundle.address.module.form_extension.class">AppBundle\Form\Module\AddressFormExtension</parameter>
         <parameter key="app_bundle.company.module.class">AppBundle\Module\CompanyModule</parameter>
         <parameter key="app_bundle.company.module.form_extension.class">AppBundle\Form\Module\CompanyFormExtension</parameter>
-    </parameters>
+        <parameter key="app_bundle.shop.module.class">AppBundle\Module\ShopModule</parameter>
+        <parameter key="app_bundle.shop.module.form_extension.class">AppBundle\Form\Module\ShopFormExtension</parameter>
+        <parameter key="app_bundle.form.type.address.class">AppBundle\Form\Type\AddressType</parameter>
+        <parameter key="app_bundle.campus.module.class">AppBundle\Module\CampusModule</parameter>
+        <parameter key="app_bundle.campus.module.form_extension.class">AppBundle\Form\Module\CampusFormExtension</parameter>
+        <parameter key="app_bundle.product.module.class">AppBundle\Module\ProductModule</parameter>
+        <parameter key="app_bundle.product.module.form_extension.class">AppBundle\Form\Module\ProductFormExtension</parameter>
+        <parameter key="app_bundle.topup.module.class">AppBundle\Module\TopupModule</parameter>
+        <parameter key="app_bundle.topup.module.form_extension.class">AppBundle\Form\Module\TopupFormExtension</parameter>
+        <parameter key="app_bundle.order.module.class">AppBundle\Module\OrderModule</parameter>
+        <parameter key="app_bundle.order.module.form_extension.class">AppBundle\Form\Module\OrderFormExtension</parameter>
+    <parameter key="app_bundle.profile.module.class">AppBundle\Module\ProfileModule</parameter><parameter key="app_bundle.profile.module.form_extension.class">AppBundle\Form\Module\ProfileFormExtension</parameter></parameters>
     <services>
-        <service id="app_bundle.address.module" class="%app_bundle.address.module.class%">
-            <tag name="clastic.module" node_module="true" alias="address"/>
-            <tag name="clastic.node_form" build_service="app_bundle.address.module.form_extension"/>
-        </service>
-        <service id="app_bundle.address.module.form_extension" class="%app_bundle.address.module.form_extension.class%"/>
         <service id="app_bundle.company.module" class="%app_bundle.company.module.class%">
             <tag name="clastic.module" node_module="true" alias="company"/>
             <tag name="clastic.node_form" build_service="app_bundle.company.module.form_extension"/>
         </service>
         <service id="app_bundle.company.module.form_extension" class="%app_bundle.company.module.form_extension.class%"/>
+        <service id="app_bundle.shop.module" class="%app_bundle.shop.module.class%">
+            <tag name="clastic.module" node_module="true" alias="shop"/>
+            <tag name="clastic.node_form" build_service="app_bundle.shop.module.form_extension"/>
+        </service>
+        <service id="app_bundle.shop.module.form_extension" class="%app_bundle.shop.module.form_extension.class%"/>
+        <service id="app_bundle.campus.module" class="%app_bundle.campus.module.class%">
+            <tag name="clastic.module" node_module="true" alias="campus"/>
+            <tag name="clastic.node_form" build_service="app_bundle.campus.module.form_extension"/>
+        </service>
+        <service id="app_bundle.campus.module.form_extension" class="%app_bundle.campus.module.form_extension.class%"/>
+        <service id="app_bundle.form.type.address" class="%app_bundle.form.type.address.class%">
+            <tag name="form.type" alias="address"/>
+        </service>
+        <service id="app_bundle.product.module" class="%app_bundle.product.module.class%">
+            <tag name="clastic.module" node_module="true" alias="product"/>
+            <tag name="clastic.node_form" build_service="app_bundle.product.module.form_extension"/>
+        </service>
+        <service id="app_bundle.product.module.form_extension" class="%app_bundle.product.module.form_extension.class%"/>
+        <service id="app_bundle.topup.module" class="%app_bundle.topup.module.class%">
+            <tag name="clastic.module" node_module="true" alias="topup"/>
+            <tag name="clastic.node_form" build_service="app_bundle.topup.module.form_extension"/>
+        </service>
+        <service id="app_bundle.topup.module.form_extension" class="%app_bundle.topup.module.form_extension.class%"/>
+        <service id="app_bundle.order.module" class="%app_bundle.order.module.class%">
+            <tag name="clastic.module" node_module="true" alias="order"/>
+            <tag name="clastic.node_form" build_service="app_bundle.order.module.form_extension"/>
+        </service>
+        <service id="app_bundle.order.module.form_extension" class="%app_bundle.order.module.form_extension.class%"/>
+        <service id="app_bundle.profile.module" class="%app_bundle.profile.module.class%">
+            <tag name="clastic.module" node_module="true" alias="profile"/>
+            <tag name="clastic.node_form" build_service="app_bundle.profile.module.form_extension"/>
+        </service>
+        <service id="app_bundle.profile.module.form_extension" class="%app_bundle.profile.module.form_extension.class%"/>
     </services>
 </container>

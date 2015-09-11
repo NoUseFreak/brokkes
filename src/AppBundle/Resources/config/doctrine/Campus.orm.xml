@@ -4,7 +4,7 @@
     <id name="id" type="integer" column="id">
       <generator strategy="AUTO"/>
     </id>
-    <field name="photo" type="string" column="photo" length="255"/>
+    <field name="photo" type="string" column="photo" length="255" nullable="true"/>
     <field name="description" type="text" column="description" nullable="true"/>
 
     <many-to-one field="node" target-entity="Clastic\NodeBundle\Entity\Node">
@@ -23,7 +23,7 @@
     </many-to-one>
 
     <many-to-many field="shops" inversed-by="campuses" target-entity="AppBundle\Entity\Shop">
-      <join-table name="campuses_shops">
+      <join-table name="Campuses_Shops">
         <join-columns>
           <join-column name="campus_id" referenced-column-name="id" />
         </join-columns>
