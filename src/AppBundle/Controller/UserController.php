@@ -2,9 +2,13 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\CommandMessage\UserRegisterCommand;
+use AppBundle\CommandMessage\UserActivateCheckCommand;
+use AppBundle\CommandMessage\UserActivateCommand;
 use AppBundle\Form\Model\Registration;
 use AppBundle\Form\Type\RegistrationType;
 use Clastic\UserBundle\Entity\User;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -21,15 +25,8 @@ class UserController extends \FOS\UserBundle\Controller\SecurityController
         $form->handleRequest($request);
 
         if ($form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            /** @var User $user */
-            $user = $form->getData()->getUser();
-            $user->setUsername($user->getEmail());
-            $user->setEnabled(true);
-
-            $em->persist($user);
-            $em->flush();
-
+            $this->get('command_bus')
+              ->handle(new UserRegisterCommand($form->getData()->getUser()));
             $this->addFlash('success', 'Registration completed. Please login.');
 
             return $this->redirectToRoute('login');
@@ -39,6 +36,28 @@ class UserController extends \FOS\UserBundle\Controller\SecurityController
           ':User:register.html.twig',
           array('form' => $form->createView())
         );
+    }
+
+    /**
+     * {@inheritdoc}
+     * @Route("/activate/{user}/{hash}", name="activate")
+     * @ParamConverter("user", class="ClasticUserBundle:User")
+     */
+    public function activateAction(User $user, $hash)
+    {
+        $event = new UserActivateCheckCommand($user, $hash);
+        $this->get('event_bus')
+          ->handle($event);
+
+        if ($event->isSuccess()) {
+            $this->get('command_bus')
+              ->handle(new UserActivateCommand($user));
+            $this->addFlash('success', 'Activation complete!');
+        } else {
+            $this->addFlash('error', 'Error');
+        }
+
+        return $this->redirectToRoute('login');
     }
 
     /**

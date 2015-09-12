@@ -1,0 +1,5 @@
+Dear {{ user.username }},
+
+Your account has been created. Please enable your account by following the next link:
+
+{{ url("activate", {"hash": hash, "user": user.id}) }}

@@ -1,15 +1,6 @@
 <?xml version="1.0"?>
 <container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
-    <!--
-    <services>
-        <service id="test.example" class="TestBundle\Example">
-            <argument type="service" id="service_id" />
-            <argument>plain_value</argument>
-            <argument>%parameter_name%</argument>
-        </service>
-    </services>
-    -->
     <parameters>
         <parameter key="app_bundle.company.module.class">AppBundle\Module\CompanyModule</parameter>
         <parameter key="app_bundle.company.module.form_extension.class">AppBundle\Form\Module\CompanyFormExtension</parameter>
@@ -24,8 +15,24 @@
         <parameter key="app_bundle.topup.module.form_extension.class">AppBundle\Form\Module\TopupFormExtension</parameter>
         <parameter key="app_bundle.order.module.class">AppBundle\Module\OrderModule</parameter>
         <parameter key="app_bundle.order.module.form_extension.class">AppBundle\Form\Module\OrderFormExtension</parameter>
-    <parameter key="app_bundle.profile.module.class">AppBundle\Module\ProfileModule</parameter><parameter key="app_bundle.profile.module.form_extension.class">AppBundle\Form\Module\ProfileFormExtension</parameter></parameters>
+        <parameter key="app_bundle.profile.module.class">AppBundle\Module\ProfileModule</parameter>
+        <parameter key="app_bundle.profile.module.form_extension.class">AppBundle\Form\Module\ProfileFormExtension</parameter>
+    </parameters>
+
     <services>
+        <service id="app.register.command_handler" class="AppBundle\CommandHandler\UserRegisterHandler">
+            <tag name="command_handler" handles="user_register" />
+            <argument type="service" id="doctrine" />
+            <argument type="service" id="mailer" />
+            <argument type="service" id="templating" />
+        </service>
+        <service id="app.user_activate.command_handler" class="AppBundle\CommandHandler\UserActivateHandler">
+            <tag name="command_handler" handles="user_activate" />
+            <argument type="service" id="doctrine" />
+        </service>
+        <service id="app.user_activate_check.command_handler" class="AppBundle\CommandHandler\UserActivateCheckHandler">
+            <tag name="event_subscriber" subscribes_to="user_activate_check" />
+        </service>
         <service id="app_bundle.company.module" class="%app_bundle.company.module.class%">
             <tag name="clastic.module" node_module="true" alias="company"/>
             <tag name="clastic.node_form" build_service="app_bundle.company.module.form_extension"/>

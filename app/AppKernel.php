@@ -40,6 +40,8 @@ class AppKernel extends Kernel
 
             // Your project
             new AppBundle\AppBundle(),
+            new SimpleBus\SymfonyBridge\SimpleBusCommandBusBundle(),
+            new SimpleBus\SymfonyBridge\SimpleBusEventBusBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
