@@ -40,6 +40,13 @@ class Purchase
      */
     private $created;
 
+    /**
+     * Purchase constructor.
+     */
+    public function __construct()
+    {
+        $this->created = new \DateTime();
+    }
 
     /**
      * Get id

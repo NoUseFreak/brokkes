@@ -2,6 +2,8 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Purchase;
+use AppBundle\Form\Type\OrderType;
 use Clastic\BackofficeBundle\Controller\AbstractModuleController;
 use Symfony\Component\Form\Form;
 
@@ -38,7 +40,12 @@ class OrderController extends AbstractModuleController
      */
     protected function resolveData($id)
     {
-        // TODO: Implement resolveData() method.
+        if (!is_null($id)) {
+            return $this->getDoctrine()->getRepository($this->getEntityName())
+                ->find($id);
+        }
+
+        return new Purchase();
     }
 
     /**
@@ -48,7 +55,7 @@ class OrderController extends AbstractModuleController
      */
     protected function buildForm($data)
     {
-        // TODO: Implement buildForm() method.
+        return $this->createForm(new OrderType(), $data);
     }
 
     /**
@@ -58,6 +65,6 @@ class OrderController extends AbstractModuleController
      */
     protected function resolveDataTitle($data)
     {
-        // TODO: Implement resolveDataTitle() method.
+        return $data->getId();
     }
 }
