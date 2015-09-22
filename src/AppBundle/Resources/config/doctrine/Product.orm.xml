@@ -14,7 +14,6 @@
     </many-to-one>
 
     <many-to-one field="shop" target-entity="AppBundle\Entity\Shop">
-      <cascade><cascade-all/></cascade>
       <join-column name="shop_id" referenced-column-name="id" />
     </many-to-one>
   </entity>
