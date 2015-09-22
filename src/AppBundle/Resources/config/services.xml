@@ -12,7 +12,6 @@
         <parameter key="app_bundle.product.module.class">AppBundle\Module\ProductModule</parameter>
         <parameter key="app_bundle.product.module.form_extension.class">AppBundle\Form\Module\ProductFormExtension</parameter>
         <parameter key="app_bundle.topup.module.class">AppBundle\Module\TopupModule</parameter>
-        <parameter key="app_bundle.topup.module.form_extension.class">AppBundle\Form\Module\TopupFormExtension</parameter>
         <parameter key="app_bundle.order.module.class">AppBundle\Module\OrderModule</parameter>
         <parameter key="app_bundle.profile.module.class">AppBundle\Module\ProfileModule</parameter>
         <parameter key="app_bundle.profile.module.form_extension.class">AppBundle\Form\Module\ProfileFormExtension</parameter>
@@ -57,9 +56,7 @@
         <service id="app_bundle.product.module.form_extension" class="%app_bundle.product.module.form_extension.class%"/>
         <service id="app_bundle.topup.module" class="%app_bundle.topup.module.class%">
             <tag name="clastic.module" node_module="true" alias="topup"/>
-            <tag name="clastic.node_form" build_service="app_bundle.topup.module.form_extension"/>
         </service>
-        <service id="app_bundle.topup.module.form_extension" class="%app_bundle.topup.module.form_extension.class%"/>
         <service id="app_bundle.order.module" class="%app_bundle.order.module.class%">
             <tag name="clastic.module" node_module="true" alias="order"/>
         </service>

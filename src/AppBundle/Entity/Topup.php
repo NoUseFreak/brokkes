@@ -35,6 +35,13 @@ class Topup
      */
     private $user;
 
+    /**
+     * Topup constructor.
+     */
+    public function __construct()
+    {
+        $this->created = new \DateTime();
+    }
 
     /**
      * Get id
