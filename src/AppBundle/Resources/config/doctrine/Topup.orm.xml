@@ -8,12 +8,10 @@
     <field name="created" type="datetime" column="created"/>
 
     <many-to-one field="campus" target-entity="AppBundle\Entity\Campus">
-      <cascade><cascade-all/></cascade>
       <join-column name="campus_id" referenced-column-name="id" />
     </many-to-one>
 
     <many-to-one field="user" target-entity="Clastic\UserBundle\Entity\User">
-      <cascade><cascade-all/></cascade>
       <join-column name="user_id" referenced-column-name="id" />
     </many-to-one>
   </entity>
